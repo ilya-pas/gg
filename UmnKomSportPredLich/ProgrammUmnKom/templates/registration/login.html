@@ -1,0 +1,17 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Войти в аккаунт{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Войти в аккаунт</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Логин" class="form-control"></br>
+            <input type="password" name="password" placeholder="Пароль" class="form-control"></br>
+            <button class="btn btn-warning">Авторизироваться</button><br>
+            <a href="{% url 'UserRegister' %}" class="Zareg">Зарегестрироватся!?</a>
+            {{ form.errors }}
+        </form>
+    </div>
+{% endblock %}

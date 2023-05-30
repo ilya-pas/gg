@@ -1,0 +1,29 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Пользователи</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'PolzovatelDob' %}"><button class="btn btn-warning">Добавить пользователя</button></a><br></h1>
+            <form method="get" action="{% url 'PolzovatelPois' %}">
+                <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+                <button class="btn btn-warning" type="submit">Найти</button>
+            </form>
+            {% if polz %}
+                <div class="alert alert-warning">
+                    {% for el in polz %}
+                        <ul class="Polz">
+                            <a href="{% url 'Polz-detail' el.id %}"><il>{{ el.username }} , {{ el.groups.all.0 }} </il></a>
+                        </ul>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Нет пользователей!</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <h1>НЕТ ДОПУСКА!!!</h1>
+    {% endif %}
+{% endblock %}

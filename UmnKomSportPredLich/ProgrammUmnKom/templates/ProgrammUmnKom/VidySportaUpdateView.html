@@ -1,0 +1,24 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Редактировать{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Редактировать</h1>
+         {% if request.user|has_group:"Администратор" %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.nazvanie_vida }}</br>
+                {{ form.opisanie }}</br>
+                {{ form.etalon_sila }}</br>
+                {{ form.etalon_vinos }}</br>
+                {{ form.etalon_skorost }}</br>
+                {{ form.etalon_gibkost }}</br>
+                {{ form.etalon_koord }}</br>
+                <button class="btn btn-success">Добавить</button><br>
+            </form>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

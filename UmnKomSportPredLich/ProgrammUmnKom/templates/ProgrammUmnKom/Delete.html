@@ -1,0 +1,17 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Удаление вида спорта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Удаление</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-success" type="submit">Удалить</button><br>
+            </form>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

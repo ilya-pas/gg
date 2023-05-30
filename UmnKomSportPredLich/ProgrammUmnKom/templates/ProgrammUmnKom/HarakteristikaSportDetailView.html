@@ -1,0 +1,17 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Характеристика спорта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Характеристика спорта</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <p>{{ Harakter_sport.ID_vida_sporta }}</p>
+            <p>{{ Harakter_sport.ID_harakter }}</p>
+            <a href="{% url 'HarakterSport-update' Harakter_sport.id %}" class="btn btn-info">Редактировать пользователя</a>
+            <a href="{% url 'HarakterSport-delete' Harakter_sport.id %}" class="btn btn-danger">Удалить пользователя</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

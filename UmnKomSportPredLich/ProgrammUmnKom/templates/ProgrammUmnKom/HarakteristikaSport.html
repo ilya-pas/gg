@@ -1,0 +1,33 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Характеристики и спорт{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Характеристики и спорт</h1>
+        <p>Связать вид спорта с характеристикой</p>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'HarakteristikaSportDob' %}"><button class="btn btn-warning">Добавить связь</button></a><br></h1>
+            <form method="GET" action="{% url 'HarakteristikaSportPois' %}">
+                <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+                <button class="btn btn-warning">Найти</button>
+            </form>
+            {% if harak_sport %}
+                <div class="Upr1">
+                    {% for el in harak_sport %}
+                        <div class="Upr">
+                            <h4>{{ el.ID_vida_sporta }}</h4>
+                            <p>Название характеристики: {{ el.ID_harakter }}</p>
+                            <a href="{% url 'HarakterSport-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Нет характеристик спорта!</p>
+            {% endif %}
+            <a>Затем будет выводится список без поиска, при использовании поиска будет менятся список</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

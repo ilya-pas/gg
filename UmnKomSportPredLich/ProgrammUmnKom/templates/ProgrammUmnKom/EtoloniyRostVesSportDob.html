@@ -1,0 +1,27 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Добавить эталонный рост вес{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Добавить эталонный рост вес</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.vozrast }}<br>
+                {{ form.rost_malch }}<br>
+                {{ form.otklon_rost_malch }}<br>
+                {{ form.ves_malch }}<br>
+                {{ form.otklon_ves_malch }}<br>
+                {{ form.rost_devoch }}<br>
+                {{ form.otklon_rost_devoch }}<br>
+                {{ form.ves_devoch }}<br>
+                {{ form.otklon_ves_devoch }}<br>
+                <span>{{ error }}</span>
+                <button class="btn btn-success" type="submit">Добавить</button><br>
+            </form>
+        {% else %}
+            <h1>НЕТ ДОПУЧКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

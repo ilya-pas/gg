@@ -1,0 +1,58 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Упражнения{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Упражнения</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'UprajneniyasDob' %}"><button class="btn btn-warning">Добавить Упражнение</button></a><br></h1>
+        {% endif %}
+        <form method="GET" action="{% url 'UprajneniyasPois' %}">
+            <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+            <button class="btn btn-warning" type="submit">Найти</button>
+        </form>
+        {% if upraj %}
+            <h3>Нормативы для 6 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 6 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Правила выполнения: {{ el.pravila_vipolnen }}</p>
+                            <p>Характеристика: {{ el.id_harakter }}</p>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <p>Норматив на 3: {{ el.normativ_na_3 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 6 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 6 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Правила выполнения: {{ el.pravila_vipolnen }}</p>
+                            <p>Характеристика: {{ el.id_harakter }}</p>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <p>Норматив на 3: {{ el.normativ_na_3 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+        {% else %}
+            <p>Нет упражнений!</p>
+        {% endif %}
+    </div>
+{% endblock %}

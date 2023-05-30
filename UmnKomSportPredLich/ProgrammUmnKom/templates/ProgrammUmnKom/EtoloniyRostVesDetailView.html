@@ -1,0 +1,24 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Эталонный рост вес{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Эталонный рост вес</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <p>Возрост: {{ Etolon.vozrast }}</p>
+            <p>Рост мальчика: {{ Etolon.rost_malch }}</p>
+            <p>Отклонение в росте мальчика: {{ Etolon.otklon_rost_malch }}</p>
+            <p>Вес мальчика: {{ Etolon.ves_malch }}</p>
+            <p>Отклонение в весе мальчика: {{ Etolon.otklon_ves_malch }}</p>
+            <p>Рост девочки: {{ Etolon.rost_devoch }}</p>
+            <p>Отклонение в росте девочки: {{ Etolon.otklon_rost_devoch }}</p>
+            <p>Вес девочки: {{ Etolon.ves_devoch }}</p>
+            <p>Отклоненипе в весе девочки: {{ Etolon.otklon_ves_devoch }}</p>
+            <a href="{% url 'EtolonRostVes-update' Etolon.id %}" class="btn btn-info">Редактировать</a>
+            <a href="{% url 'EtolonRostVes-delete' Etolon.id %}" class="btn btn-danger">Удалить</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

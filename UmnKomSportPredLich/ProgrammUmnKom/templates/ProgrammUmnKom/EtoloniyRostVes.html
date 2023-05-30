@@ -1,0 +1,39 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Эталонный рост вес{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Эталонный рост вес</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'EtoloniyRostVesSportDob' %}"><button class="btn btn-warning">Добавить эталонный рост вес</button></a><br></h1>
+            <form method="GET" action="{% url 'EtoloniyRostVesPois' %}">
+                <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+                <button class="btn btn-warning">Найти</button>
+            </form>
+            {% if etolon %}
+                <div class="Upr1">
+                    {% for el in etolon %}
+                        <div class="Upr">
+                            <h4>Возрост: {{ el.vozrast }}</h4>
+                            <p>Рост мальчика: {{ el.rost_malch }}</p>
+                            <p>Отклонение в росте мальчика: {{ el.otklon_rost_malch }}</p>
+                            <p>Вес мальчика: {{ el.ves_malch }}</p>
+                            <p>Отклонение в весе мальчика: {{ el.otklon_ves_malch }}</p>
+                            <p>Рост девочки: {{ el.rost_devoch }}</p>
+                            <p>Отклонение в росте девочки: {{ el.otklon_rost_devoch }}</p>
+                            <p>Вес девочки: {{ el.ves_devoch }}</p>
+                            <p>Отклоненипе в весе девочки: {{ el.otklon_ves_devoch }}</p>
+                            <a href="{% url 'EtolonRostVes-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Нет эталоного роста веса!</p>
+            {% endif %}
+            <a>Затем будет выводится список без поиска, при использовании поиска будет менятся список</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

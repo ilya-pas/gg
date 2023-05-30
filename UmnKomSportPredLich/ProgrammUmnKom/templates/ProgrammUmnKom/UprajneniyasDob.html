@@ -1,0 +1,26 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Добавить упражнение{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Добавить упражнение</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.uprajnen }}</br>
+                {{ form.pravila_vipolnen }}</br>
+                {{ form.id_harakter }}</br>
+                {{ form.vozrast }}</br>
+                {{ form.pol }}</br>
+                {{ form.normativ_na_6 }}</br>
+                {{ form.normativ_na_5 }}</br>
+                {{ form.normativ_na_4 }}</br>
+                {{ form.normativ_na_3 }}</br>
+                <button class="btn btn-success">Добавить</button><br>
+            </form>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

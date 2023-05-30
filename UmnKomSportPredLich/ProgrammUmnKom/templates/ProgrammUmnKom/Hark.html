@@ -1,0 +1,15 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Характеристики{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Характеристики</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'Harakteristika' %}"><button class="btn btn-warning">Характеристика</button></a><br></h1>
+            <h1><a href="{% url 'HarakteristikaSport' %}"><button class="btn btn-warning">Характеристики спорта</button></a><br></h1>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

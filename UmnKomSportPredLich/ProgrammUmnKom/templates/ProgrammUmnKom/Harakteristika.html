@@ -1,0 +1,30 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Характеристики{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Характеристики</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'HarakteristikaDob' %}"><button class="btn btn-warning">Добавить характеристики</button></a><br></h1>
+            <form method="GET" action="{% url 'HarakteristikaPois' %}">
+                <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+                <button class="btn btn-warning">Найти</button>
+            </form>
+            {% if harak %}
+                {% for el in harak %}
+                    <div class="alert alert-warning">
+                        <h4>{{ el.nazvanie_harakteristiki }}</h4>
+                        <p>Описание: {{ el.opisanie_harakteristiki }}</p>
+                        <a href="{% url 'Harakter-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Нет характеристик!</p>
+            {% endif %}
+            <a>Затем будет выводится список без поиска, при использовании поиска будет менятся список</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

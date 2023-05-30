@@ -1,0 +1,24 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Добавить пользователя{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Добавить пользователя</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.username }}</br>
+                {{ form.password1 }}</br>
+                {{ form.password2 }}</br>
+                <select name="qq" class="form-control">
+                    <option value="Родитель">Родитель</option>
+                    <option value="Администратор">Администратор</option>
+                </select><br>
+                <button class="btn btn-success">Добавить</button><br>
+            </form>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

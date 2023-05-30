@@ -1,0 +1,29 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Виды Спорта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Виды Спорта</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <h1><a href="{% url 'VidySportaDob' %}"><button class="btn btn-warning">Добавить вид спорта</button></a><br></h1>
+        {% endif %}
+        <form method="GET" action="{% url 'VidySportaPois' %}">
+            <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+            <button class="btn btn-warning" type="submit">Найти</button>
+        </form>
+        {% if vidy_sporta %}
+            <div class="BolVidSport">
+                {% for el in vidy_sporta %}
+                    <div class="VidySporta">
+                        <a href="{% url 'Vidy-detail' el.id %}">
+                            {{ el.nazvanie_vida }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Нет видов спорта!</p>
+        {% endif %}
+    </div>
+{% endblock %}

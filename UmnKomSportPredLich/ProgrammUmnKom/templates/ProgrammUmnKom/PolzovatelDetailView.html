@@ -1,0 +1,18 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Пользователь</h1>
+        {% if request.user|has_group:"Администратор" %}
+            <p>{{ Polz.groups.all.0 }}</p>
+            <p>{{ Polz.username }}</p>
+            <a href="{% url 'Polz-update' Polz.id %}" class="btn btn-info">Редактировать пользователя</a>
+            <a href="{% url 'Polz-update-password' %}" class="btn btn-info">Редактировать пароль</a>
+            <a href="{% url 'Polz-delete' Polz.id %}" class="btn btn-danger">Удалить пользователя</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

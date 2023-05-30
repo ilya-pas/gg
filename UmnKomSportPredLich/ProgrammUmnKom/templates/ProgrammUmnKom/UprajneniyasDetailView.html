@@ -1,0 +1,22 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Упражнение{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Упражнение</h1>
+        <p>Название: {{ Upr.uprajnen }}</p>
+        <p>Правила выполнения: {{ Upr.pravila_vipolnen }}</p>
+        <p>Характеристика: {{ el.id_harakter }}</p>
+        <p>Возраст: {{ Upr.vozrast }}</p>
+        <p>Пол: {{ Upr.pol }}</p>
+        <p>Норматив на 6: {{ Upr.normativ_na_6 }}</p>
+        <p>Норматив на 5: {{ Upr.normativ_na_5 }}</p>
+        <p>Норматив на 4: {{ Upr.normativ_na_4 }}</p>
+        <p>Норматив на 3: {{ Upr.normativ_na_3 }}</p>
+        {% if request.user|has_group:"Администратор" %}
+            <a href="{% url 'Upr-update' Upr.id %}" class="btn btn-info">Редактировать пользователя</a>
+            <a href="{% url 'Upr-delete' Upr.id %}" class="btn btn-danger">Удалить пользователя</a>
+        {% endif %}
+    </div>
+{% endblock %}
