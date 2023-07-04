@@ -1,0 +1,39 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование вынослвости</h1><br>
+        {% if request.user|has_group:"Родитель" %}
+            {% for el in upr %}
+                {% if el.vozrast == rez.vozr_reb %}
+                    {% if el.pol == rez.pol_reb %}
+                        {% if rezul %}
+                            {% if rezulK1 != '' %}
+                                {% if rezulK1 == el.uprajnen %}
+                                    <h3>{{ el.uprajnen }}</h3>
+                                    <p>Упражнение выполнено</p>
+                                {% elif rezulK2 != '' %}
+                                    {% if rezulK2 == el.uprajnen %}
+                                        <h3>{{ el.uprajnen }}</h3>
+                                        <p>Упражнение выполнено</p>
+                                    {% endif %}
+                                {% else %}
+                                    <h3>{{ el.uprajnen }}</h3>
+                                    <a href="{% url 'DobVinos' rez.id el.id %}" class="btn btn-warning">Заполнить результат</a><br><br>
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            <h3>{{ el.uprajnen }}</h3>
+                            <a href="{% url 'DobVinos' rez.id el.id %}" class="btn btn-warning">Заполнить результат</a><br><br>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <a href="{% url 'Gibkost' rez.id %}" class="btn btn-warning">Далее</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

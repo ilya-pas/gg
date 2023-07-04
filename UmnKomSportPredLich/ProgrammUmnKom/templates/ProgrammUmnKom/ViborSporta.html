@@ -1,0 +1,24 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Выбор спорта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Выбор спорта</h1>
+
+        {% if request.user|has_group:"Родитель" %}
+            {{ rez.id }}
+            Точно этот вид спорта?
+            {{ page_alt }}<br>
+            {{ upraj }}
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-warning">ДА</button><br><br>
+                <a href="{% url 'RzulTest' upraj.id %}" class="btn btn-warning">НЕТ!!!</a>
+            </form>
+
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -6,15 +6,15 @@
     <div class="features">
         <h1>Вид спорта</h1>
         <p>Название: {{ VidySporta.nazvanie_vida }}</p>
-        <p>Описание: {{ VidySporta.opisanie }}</p>
+        <p style="text-align:justify; margin-right: 500px; margin-left: 500px; text-indent: 3ch;">Описание: {{ VidySporta.opisanie }}</p>
         <p>Эталонная сила: {{ VidySporta.etalon_sila }}</p>
         <p>Эталонная выносливасть: {{ VidySporta.etalon_vinos }}</p>
         <p>Эталонная скорость: {{ VidySporta.etalon_skorost }}</p>
         <p>Эталонная гибкость: {{ VidySporta.etalon_gibkost }}</p>
         <p>Эталонная координация: {{ VidySporta.etalon_koord }}</p>
         {% if request.user|has_group:"Администратор" %}
-            <a href="{% url 'Vidy-update' VidySporta.id %}" class="btn btn-info">Редактировать пользователя</a>
-            <a href="{% url 'Vidy-delete' VidySporta.id %}" class="btn btn-danger">Удалить пользователя</a>
+            <a href="{% url 'Vidy-update' VidySporta.id %}" class="btn btn-info">Редактировать</a>
+            <a href="{% url 'Vidy-delete' VidySporta.id %}" class="btn btn-danger">Удалить</a>
         {% endif %}
     </div>
 {% endblock %}

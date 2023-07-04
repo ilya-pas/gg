@@ -1,0 +1,37 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование результат</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <p>Балл скрости: {{ rezultat1 }}</p>
+            <p>Балл силы: {{ rezultat2 }}</p>
+            <p>Балл выносливости: {{ rezultat3 }}</p>
+            <p>Балл гибкости: {{ rezultat4 }}</p>
+            <p>Балл координации: {{ rezultat5 }}</p>
+            {% if rez.ID_vida_sporta == None %}
+                <h3>Выберете вид спорта:</h3>
+                {% for el in a %}
+                    {% for il in VidSpor %}
+                        {% if el == il.nazvanie_vida %}
+                            <a href="{% url 'ViborSporta' rez.id il.id %}" class="btn btn-warning">{{ il.nazvanie_vida }}</a>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                <p>-------------------------------</p>
+            {% else %}
+                <h3>Выбранный вид спорта: {{ rez.ID_vida_sporta }}</h3>
+                <h3>Дата прохождения: {{ rez.date_prohoj_test }}</h3>
+                <a href="{% url 'Karta' rez.id %}" class="btn btn-warning">Перейти к карте</a><br>
+                <p>-------------------------------</p>
+            {% endif %}
+            <div>
+                {{ div|safe }}
+            </div>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

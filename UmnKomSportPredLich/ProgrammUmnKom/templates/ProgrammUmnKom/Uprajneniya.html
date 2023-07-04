@@ -20,12 +20,9 @@
                     {% if el.pol == 'Мужской' %}
                         <div class="Upr">
                             <h4>{{ el.uprajnen }}</h4>
-                            <p>Правила выполнения: {{ el.pravila_vipolnen }}</p>
-                            <p>Характеристика: {{ el.id_harakter }}</p>
                             <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
                             <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
                             <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
-                            <p>Норматив на 3: {{ el.normativ_na_3 }}</p>
                             <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
                         </div>
                     {% endif %}
@@ -39,12 +36,233 @@
                     {% if el.pol == 'Женский' %}
                         <div class="Upr">
                             <h4>{{ el.uprajnen }}</h4>
-                            <p>Правила выполнения: {{ el.pravila_vipolnen }}</p>
-                            <p>Характеристика: {{ el.id_harakter }}</p>
                             <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
                             <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
                             <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
-                            <p>Норматив на 3: {{ el.normativ_na_3 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 7 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 7 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 7 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 7 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 8 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 8 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 8 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 8 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 9 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 9 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 9 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 9 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 10 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 10 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 10 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 10 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 11 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 11 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 11 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 11 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 12 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 12 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 12 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 12 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 13 летних мальчиков</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 13 %}
+                    {% if el.pol == 'Мужской' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
+                            <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            <h3>Нормативы для 13 летних девочек</h3>
+            <div class="Upr1">
+            {% for el in upraj %}
+                {% if el.vozrast == 13 %}
+                    {% if el.pol == 'Женский' %}
+                        <div class="Upr">
+                            <h4>{{ el.uprajnen }}</h4>
+                            <p>Норматив на 6: {{ el.normativ_na_6 }}</p>
+                            <p>Норматив на 5: {{ el.normativ_na_5 }}</p>
+                            <p>Норматив на 4: {{ el.normativ_na_4 }}</p>
                             <a href="{% url 'Upr-detail' el.id %}" class="btn btn-warning">Детальней</a>
                         </div>
                     {% endif %}

@@ -1,0 +1,53 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}История прохождения тестирования{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>История прохождения тестирования</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <form method="GET" action="{% url 'IstoriaPois' %}">
+                <input name="q" type="text" placeholder="Поиск" class="form-control"><br>
+                <button class="btn btn-warning">Найти</button>
+            </form>
+            {% if ist %}
+                <div class="Upr1">
+                    {% for el in ist %}
+                        {% if el.ID_polzovatelya|lower == user.username|lower %}
+                            {% if el.date_prohoj_test != None %}
+                            <div class="UprRez">
+                                <h4>Имя ребенка: {{ el.imya_reb }}</h4>
+                                <p>Пол ребенка: {{ el.pol_reb }}</p>
+                                <p>Возраст ребенка: {{ el.vozr_reb }}</p>
+                                <p>Рост ребенка: {{ el.rost }}</p>
+                                <p>Вес ребенка: {{ el.ves }}</p>
+                                <p>Дата прохождения теста: {{ el.date_prohoj_test }}</p>
+                                <p>Выбранный вид спорта: {{ el.ID_vida_sporta }}</p>
+                                <a href="{% url 'RzulTest' el.id %}" class="btn btn-warning">Детальней</a>
+                            </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for el in ist %}
+                        {% if el.ID_polzovatelya|lower == user.username|lower %}
+                            {% if el.date_prohoj_test == None %}
+                            <div class="UprRez">
+                                <h4>Имя ребенка: {{ el.imya_reb }}</h4>
+                                <p>Пол ребенка: {{ el.pol_reb }}</p>
+                                <p>Возраст ребенка: {{ el.vozr_reb }}</p>
+                                <p>Рост ребенка: {{ el.rost }}</p>
+                                <p>Вес ребенка: {{ el.ves }}</p>
+                                <a href="{% url 'RzulTest' el.id %}" class="btn btn-warning">Детальней</a>
+                            </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Нет пройденых тестов!</p>
+            {% endif %}
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,299 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Карта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Карта</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <p style="font-size: 20px;">На карте показаны секции к выбраному виду спорта: {{ rez.ID_vida_sporta }}</p>
+            <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+            <div id="map" style="width:700px; height:550px; margin-left: 600px;"></div>
+            {% if rez.ID_vida_sporta|lower == "Настольный тенис"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.97324271220798, 56.163690699798316]).addTo(map).bindPopup('СДЮШОР "СТАРТ"');
+                    DG.marker([58.060217493300335, 56.357083859275306]).addTo(map).bindPopup('НАСТОЛЬНЫЙ ТЕННИС В ДЮСШ "ИСКРА"');
+                    DG.marker([57.99935415004546, 56.17971864599239]).addTo(map).bindPopup('МАУ ДО ЦДТ "Юность"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([57.96021301974159, 56.241539233019985]).addTo(map).bindPopup('Подростковый клуб "Дружные Ребята"');
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.marker([58.01448691995713, 56.236374425701825]).addTo(map).bindPopup('ДОМ ДЕТСКОГО ТВОРЧЕСТВА "ПЕРМЯЧЕК"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Скалолазание"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([58.00995511205085, 56.24832844985291]).addTo(map).bindPopup('ДВОРЕЦ ДЕТСКОГО (ЮНОШЕСКОГО) ТВОРЧЕСТВА');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Баскетбол"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.99883909439827, 56.25801209857525]).addTo(map).bindPopup('ФЕДЕРАЦИЯ БАСКЕТБОЛА ПЕРМСКОГО КРАЯ');
+                    DG.marker([57.952657745078575, 56.11149849249023]).addTo(map).bindPopup('СДЮСШОР ПО БАСКЕТБОЛУ "ОЛИМПИЕЦ"');
+                    DG.marker([58.015820305999576, 56.23944635796049]).addTo(map).bindPopup('БАСКЕТБОЛЬНЫЙ КЛУБ "УРАЛ-ГРЕЙТ"');
+                    DG.marker([57.96021301974159, 56.241539233019985]).addTo(map).bindPopup('Подростковый клуб "Дружные Ребята"');
+                    DG.marker([57.99935415004546, 56.17971864599239]).addTo(map).bindPopup('МАУ ДО ЦДТ "Юность"');
+                    DG.marker([57.98444991033743, 56.225411997897815]).addTo(map).bindPopup('ДЕТСКО ЮНОШЕСКИЙ ЦЕНТР ФИЗИЧЕСКОЙ ПОДГОТОВКИ "ЗДОРОВЬЕ"');
+                    DG.marker([58.00268764583638, 56.26697075546954]).addTo(map).bindPopup('ДОМ СПОРТА "РУБИН"');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.marker([58.00995511205085, 56.24832844985291]).addTo(map).bindPopup('ДВОРЕЦ ДЕТСКОГО (ЮНОШЕСКОГО) ТВОРЧЕСТВА');
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.01448691995713, 56.236374425701825]).addTo(map).bindPopup('ДОМ ДЕТСКОГО ТВОРЧЕСТВА "ПЕРМЯЧЕК"');
+                    DG.marker([58.060217493300335, 56.357083859275306]).addTo(map).bindPopup('ДЮСШ "ИСКРА"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Волейбол"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.96021301974159, 56.241539233019985]).addTo(map).bindPopup('Подростковый клуб "Дружные Ребята"');
+                    DG.marker([57.99935415004546, 56.17971864599239]).addTo(map).bindPopup('МАУ ДО ЦДТ "Юность"');
+                    DG.marker([57.98444991033743, 56.225411997897815]).addTo(map).bindPopup('ДЕТСКО ЮНОШЕСКИЙ ЦЕНТР ФИЗИЧЕСКОЙ ПОДГОТОВКИ "ЗДОРОВЬЕ"');
+                    DG.marker([58.00268764583638, 56.26697075546954]).addTo(map).bindPopup('ДОМ СПОРТА "РУБИН"');
+                    DG.marker([57.99163415142631, 56.249344949334876]).addTo(map).bindPopup('ДЮСШ СВЕРДЛОВСКОГО РАЙОНА');
+                    DG.marker([58.01448691995713, 56.236374425701825]).addTo(map).bindPopup('ДОМ ДЕТСКОГО ТВОРЧЕСТВА "ПЕРМЯЧЕК"');
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([58.060217493300335, 56.357083859275306]).addTo(map).bindPopup('НАСТОЛЬНЫЙ ТЕННИС В ДЮСШ "ИСКРА"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Хокей"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.98444991033743, 56.225411997897815]).addTo(map).bindPopup('ДЕТСКО ЮНОШЕСКИЙ ЦЕНТР ФИЗИЧЕСКОЙ ПОДГОТОВКИ "ЗДОРОВЬЕ"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([58.02416114769796, 56.29622265556974]).addTo(map).bindPopup('СДЮШОР ПО ХОККЕЮ "МОЛОТ"');
+                    DG.marker([57.97606238277793, 56.15941573117681]).addTo(map).bindPopup('СПОРТИВНЫЙ КОМПЛЕКС ИМЕНИ В.П. СУХАРЕВА');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Футбол"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.98444991033743, 56.225411997897815]).addTo(map).bindPopup('ДЕТСКО ЮНОШЕСКИЙ ЦЕНТР ФИЗИЧЕСКОЙ ПОДГОТОВКИ "ЗДОРОВЬЕ"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([57.97606238277793, 56.15941573117681]).addTo(map).bindPopup('СПОРТИВНЫЙ КОМПЛЕКС ИМЕНИ В.П. СУХАРЕВА');
+                    DG.marker([57.9666937546634, 56.238126769637475]).addTo(map).bindPopup('СЕКЦИЯ ПО ФУТБОЛУ "ЧЕМПИОНИКА" БЦ НАВИГАТОР');
+                    DG.marker([57.99881113396172, 56.24354889724765]).addTo(map).bindPopup('ШКОЛА ФУТБОЛА "LIKE"');
+                    DG.marker([57.99517325376765, 56.19888516951932]).addTo(map).bindPopup('ДЕТСКАЯ ФУТБОЛЬНАЯ ШКОЛА "ЮНИОР"');
+                    DG.marker([57.99381334040515, 56.298934979176636]).addTo(map).bindPopup('ДЕТСКАЯ ФУТБОЛЬНАЯ ШКОЛА "ДИОНИС"');
+                    DG.marker([58.02353099309315, 56.28950470557109]).addTo(map).bindPopup('ФУТБОЛЬНЫЙ КЛУБ "СВОБОДА"');
+                    DG.marker([58.04010104832186, 56.034093859364255]).addTo(map).bindPopup('СПОРТИВНЫЙ ЦЕНТР "АВАНГАРД"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Велогонки"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.038429636343984, 56.045702662195836]).addTo(map).bindPopup('ДЮСТШ "НОРТОН-ЮНИОР"');
+                    DG.marker([58.015754747748844, 56.23643230358845]).addTo(map).bindPopup('ШКОЛА СПОРТА "I LOVE SUPERSPORT"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Плаванье"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([57.97606238277793, 56.15941573117681]).addTo(map).bindPopup('СПОРТИВНЫЙ КОМПЛЕКС ИМЕНИ В.П. СУХАРЕВА');
+                    DG.marker([58.02087454796258, 56.314679380211594]).addTo(map).bindPopup('CТУДИЯ АКВААЭРОБИКИ "АКВА-ПЕРМЬ"');
+                    DG.marker([57.97642667842228, 56.18688244182342]).addTo(map).bindPopup('СПОРТИВНЫЙ КОМПЛЕКС "ОЛИМПИЯ"');
+                    DG.marker([58.009243194702094, 56.30139777532095]).addTo(map).bindPopup('МАУ ДО ДЮСШ ВОДНЫХ ВИДОВ СПОРТА');
+                    DG.marker([58.015754747748844, 56.23643230358845]).addTo(map).bindPopup('ШКОЛА СПОРТА "I LOVE SUPERSPORT"');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Фигурное катание"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([58.00995511205085, 56.24832844985291]).addTo(map).bindPopup('ДВОРЕЦ ДЕТСКОГО (ЮНОШЕСКОГО) ТВОРЧЕСТВА');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.marker([57.97606238277793, 56.15941573117681]).addTo(map).bindPopup('СПОРТИВНЫЙ КОМПЛЕКС ИМЕНИ В.П. СУХАРЕВА');
+                    DG.marker([58.00511407013167, 56.2531212575371]).addTo(map).bindPopup('СДЮCШОР "ОРЛЁНОК"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Легкая атлетика"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.98444991033743, 56.225411997897815]).addTo(map).bindPopup('ДЕТСКО ЮНОШЕСКИЙ ЦЕНТР ФИЗИЧЕСКОЙ ПОДГОТОВКИ "ЗДОРОВЬЕ"');
+                    DG.marker([57.99163415142631, 56.249344949334876]).addTo(map).bindPopup('ДЮСШ СВЕРДЛОВСКОГО РАЙОНА');
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([57.99163252003562, 56.249346305881464]).addTo(map).bindPopup('МАУ "ФСЦ "СПАРТАК"');
+                    DG.marker([58.0040437872478, 56.24368123739822]).addTo(map).bindPopup('СДЮСШОР №1 ПО ЛЕГКОЙ АТЛЕТИКЕ И ХУДОЖЕСТВЕННОЙ ГИМНАСТИКЕ');
+                    DG.marker([58.01860812781331, 55.98159822907736]).addTo(map).bindPopup('СДЮСШОР КИРОВСКОГО РАЙОНА');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.marker([58.015754747748844, 56.23643230358845]).addTo(map).bindPopup('ШКОЛА СПОРТА "I LOVE SUPERSPORT"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Тэквондо"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.99163415142631, 56.249344949334876]).addTo(map).bindPopup('ДЮСШ СВЕРДЛОВСКОГО РАЙОНА');
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.11250258839871, 56.28403100416756]).addTo(map).bindPopup('ДЮЦ "ФАВОРИТ"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Самбо"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([57.99935415004546, 56.17971864599239]).addTo(map).bindPopup('МАУ ДО ЦДТ "Юность"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([57.994367551092495, 56.240590041760434]).addTo(map).bindPopup('ДЕТСКИЙ ВОЕННО-СПОРТИВНЫЙ КЛУБ');
+                    DG.marker([57.97252140197242, 56.2054089640968]).addTo(map).bindPopup('СДЮСШОР ПО САМБО И ДЗЮДО "ВИТЯЗЬ"');
+                    DG.marker([58.00008183999258, 56.14238743189387]).addTo(map).bindPopup('СДЮСШОР ПО БАДМИНТОНУ "ОЛИМПИЙСКИЕ РАКЕТКИ"');
+                    DG.marker([58.00282574417474, 56.23635597436442]).addTo(map).bindPopup('СДЮСШОР ПО ДЗЮДО И САМБО');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Киокушинкай"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([58.010217490208795, 56.2090286978992]).addTo(map).bindPopup('СДЮШОР "КИОКУШИНКАЙ"')
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([57.98444991033743, 56.225411997897815]).addTo(map).bindPopup('ДЕТСКО ЮНОШЕСКИЙ ЦЕНТР ФИЗИЧЕСКОЙ ПОДГОТОВКИ "ЗДОРОВЬЕ"');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+
+            {% if rez.ID_vida_sporta|lower == "Дзюдо"|lower %}
+                <script type="text/javascript">
+                    var map;
+
+                    DG.then(function () {
+                    map = DG.map('map', {
+                        center: [58.010252, 56.228274],
+                        zoom: 13
+                        });
+                    DG.marker([58.01448691995713, 56.236374425701825]).addTo(map).bindPopup('ДОМ ДЕТСКОГО ТВОРЧЕСТВА "ПЕРМЯЧЕК"');
+                    DG.marker([57.97672568899267, 56.32036746930575]).addTo(map).bindPopup('КГАОУДО "ПЕРМСКИЙ РЕГИОНАЛЬНЫЙ СПОРТИВНО-ТРЕНИРОВОЧНЫЙ ЦЕНТР АДАПТИВНОГО СПОРТА"');
+                    DG.marker([58.011750494495516, 56.294357284404]).addTo(map).bindPopup('ДЮЦ им. Василия Соломина');
+                    DG.marker([58.060217493300335, 56.357083859275306]).addTo(map).bindPopup('НАСТОЛЬНЫЙ ТЕННИС В ДЮСШ "ИСКРА"');
+                    DG.marker([58.01860812781331, 55.98159822907736]).addTo(map).bindPopup('СДЮСШОР КИРОВСКОГО РАЙОНА');
+                    DG.marker([57.994367551092495, 56.240590041760434]).addTo(map).bindPopup('ДЕТСКИЙ ВОЕННО-СПОРТИВНЫЙ КЛУБ');
+                    DG.marker([57.97252140197242, 56.2054089640968]).addTo(map).bindPopup('СДЮСШОР ПО САМБО И ДЗЮДО "ВИТЯЗЬ"');
+                    DG.marker([58.00282574417474, 56.23635597436442]).addTo(map).bindPopup('СДЮСШОР ПО ДЗЮДО И САМБО');
+                    DG.locate().addTo(map)
+                    });
+                </script>
+            {% endif %}
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

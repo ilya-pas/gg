@@ -12,24 +12,24 @@
 </head>
 <body>
     <aside>
-        <span class="logo">Умный комплекс спортивной предрасположенности личности</span>
+        <span class="logo">Умный комплекс спортивной предрасположенности личности школьника</span>
         {% if user.is_authenticated %}
             <ul>
                 {% if request.user|has_group:"Родитель" %}
-                    <a href="{% url 'Glav' %}"><li>Главная страница-</li></a>
-                    <a href=""><li>Личный кабинет-</li></a>
-                    <a href=""><li>Тестирование-</li></a>
-                    <a href="{% url 'VidySporta' %}"><li>Виды спорта+</li></a>
-                    <a href="{% url 'Uprajneniyas' %}"><li>Упражнения+</li></a>
+                    <a href="{% url 'Glav' %}"><li>Главная страница</li></a>
+                    <a href="{% url 'LichKab' %}"><li>Личный кабинет</li></a>
+                    <a href="{% url 'Testirovanie' %}"><li>Тестирование</li></a>
+                    <a href="{% url 'VidySporta' %}"><li>Виды спорта</li></a>
+                    <a href="{% url 'Uprajneniyas' %}"><li>Упражнения</li></a>
                     Родитель:
                 {% endif %}
                 {% if request.user|has_group:"Администратор" %}
-                    <a href="{% url 'Glav' %}"><li>Главная страница-</li></a>
-                    <a href="{% url 'Polzovatel' %}"><li>Пользователь+</li></a>
-                    <a href="{% url 'VidySporta' %}"><li>Виды спорта+</li></a>
-                    <a href="{% url 'Uprajneniyas' %}"><li>Упражнения+</li></a>
-                    <a href="{% url 'Hark' %}"><li>Характеристики+</li></a>
-                    <a href="{% url 'EtoloniyRostVes' %}"><li>Эталонный рост вес+</li></a>
+                    <a href="{% url 'Glav' %}"><li>Главная страница</li></a>
+                    <a href="{% url 'Polzovatel' %}"><li>Пользователь</li></a>
+                    <a href="{% url 'VidySporta' %}"><li>Виды спорта</li></a>
+                    <a href="{% url 'Uprajneniyas' %}"><li>Упражнения</li></a>
+                    <a href="{% url 'Harakteristika' %}"><li>Характеристики</li></a>
+                    <a href="{% url 'EtoloniyRostVes' %}"><li>Эталонный рост вес</li></a>
                     Администратор:
                 {% endif %}
                 {{ user.username }}
@@ -37,10 +37,10 @@
             </ul>
         {% else %}
             <ul>
-                <a href="{% url 'Glav' %}"><li>Главная страница-</li></a>
-                <a href="{% url 'VidySporta' %}"><li>Виды спорта+</li></a>
-                <a href="{% url 'Uprajneniyas' %}"><li>Упражнения+</li></a>
-                <a href="{% url 'login' %}"><button class="btn btn-warning">Войти+</button></a>
+                <a href="{% url 'Glav' %}"><li>Главная страница</li></a>
+                <a href="{% url 'VidySporta' %}"><li>Виды спорта</li></a>
+                <a href="{% url 'Uprajneniyas' %}"><li>Упражнения</li></a>
+                <a href="{% url 'login' %}"><button class="btn btn-warning">Войти</button></a>
             </ul>
         {% endif %}
     </aside>

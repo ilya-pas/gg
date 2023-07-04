@@ -1,0 +1,19 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование (Начало)</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.imya_reb }}<br>
+            {{ form.pol_reb }}<br>
+            {{ form.vozr_reb }}<br>
+            {{ form.rost }}<br>
+            {{ form.ves }}<br>
+            {{ error }}
+            <button class="btn btn-warning">Далее>>></button>
+        </form>
+    </div>
+{% endblock %}

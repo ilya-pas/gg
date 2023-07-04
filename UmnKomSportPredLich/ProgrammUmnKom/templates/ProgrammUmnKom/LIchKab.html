@@ -1,0 +1,15 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Личный кабинет</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <a class = "btn btn-warning" href="{% url 'Istoria' %}">История прохождения тестирования</a><br><br>
+            <a class = "btn btn-warning" href="{% url 'IzmenLichDan' %}">Изменить личные данные</a><br>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

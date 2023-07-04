@@ -1,0 +1,16 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <h1>
+                <a href="{% url 'Nach' %}"><button class="btn btn-success">Начать тестирование</button></a><br>
+            </h1>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

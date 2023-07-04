@@ -1,0 +1,20 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <form method="post">
+                {% csrf_token %}
+                <h1>{{ upraj.uprajnen }}</h1>
+                <p>Правила выполненя: {{ upraj.pravila_vipolnen }}</p>
+                {{ form.resul_upr }}<br>
+                <button class="btn btn-warning">Отправить</button>
+            </form>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

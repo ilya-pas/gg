@@ -1,0 +1,17 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Изменение личных данных{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Изменение личных данных</h1>
+        {% if request.user|has_group:"Родитель" %}
+            <h3>{{ user.username }}</h3>
+            <h3>{{ user.groups.all.0 }}</h3>
+            <a class="btn btn-warning" href="{% url 'User-update' user.id %}">Изменить логин</a>
+            <a class="btn btn-warning" href="{% url 'User-update-password' user.id %}">Изменить пароль</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}

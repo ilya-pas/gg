@@ -9,7 +9,7 @@
             <p>{{ Polz.groups.all.0 }}</p>
             <p>{{ Polz.username }}</p>
             <a href="{% url 'Polz-update' Polz.id %}" class="btn btn-info">Редактировать пользователя</a>
-            <a href="{% url 'Polz-update-password' %}" class="btn btn-info">Редактировать пароль</a>
+            <a href="{% url 'Polz-update-password' Polz.id %}" class="btn btn-info">Редактировать пароль</a>
             <a href="{% url 'Polz-delete' Polz.id %}" class="btn btn-danger">Удалить пользователя</a>
         {% else %}
             <h1>НЕТ ДОПУСКА!!!</h1>

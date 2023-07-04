@@ -121,9 +121,23 @@ div .BolVidSport {
 
 div .Upr1 {
     width: 1800px;
-    height: 1200px;
+    height: 600px;
 }
 
 div .Upr p, h4 {
+    color: #000000;
+}
+
+div .UprRez {
+    display: inline;
+    border-radius: 10px;
+
+    margin: 10px 50px 20px;
+    padding: 10px 20px 10px 20px;
+    background: #FFFFE0;
+    float: left;
+}
+
+div .UprRez p, h4 {
     color: #000000;
 }

@@ -1,7 +1,39 @@
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, BaseUserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, BaseUserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import Group, User
-from .models import Polzovateli, VidSporta, Uprajneniya, Harakteristiki, HarakterisSporta, EtolonRostVes
+from .models import VidSporta, Uprajneniya, Harakteristiki, HarakterisSporta, EtolonRostVes, Rezultaty, RezulUpr
 from django.forms import ModelForm, TextInput, Select, PasswordInput, Textarea, DateTimeInput, CharField, MultipleChoiceField, SelectMultiple
+
+class myPasswordChangeForm(PasswordChangeForm):
+    old_password = CharField(
+        label='Password',
+        widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Старый пароль'})
+    )
+    new_password1 = CharField(
+        label='Password',
+        widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль'})
+    )
+    new_password2 = CharField(
+        label='Password',
+        widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Повторите пароль'})
+    )
+    class Meta:
+        model = User
+        fields = ['old_password, new_password1, new_password2']
+
+        widgets = {
+            "old_password": PasswordInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Старый пароль',
+            }),
+            "new_password1": PasswordInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Пароль',
+            }),
+            "new_password2": PasswordInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Повторите пароль',
+            })
+        }
 
 class myUserCreationForm(UserCreationForm):
     password1 = CharField(
@@ -47,24 +79,15 @@ class myUserChangeForm(UserChangeForm):
             })
         }
 
-
-class PolzovateliForm(ModelForm):
+class myUserChangeForm2(UserChangeForm):
     class Meta:
-        model = Polzovateli
-        fields = ['ID_kategorii', 'login', 'parol']
+        model = User
+        fields = ['username']
 
         widgets = {
-            "ID_kategorii": Select(attrs={
+            "username": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Категория пользователя',
-            }),
-            "login": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Логин'
-            }),
-            "parol": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Пароль'
+                'placeholder': 'Имя пользователя',
             })
         }
 
@@ -107,7 +130,7 @@ class VidSportaForm(ModelForm):
 class UprajneniyaForm(ModelForm):
     class Meta:
         model = Uprajneniya
-        fields = ['id_harakter','uprajnen', 'pravila_vipolnen', 'vozrast', 'pol', 'normativ_na_6', 'normativ_na_5', 'normativ_na_4', 'normativ_na_3']
+        fields = ['id_harakter','uprajnen', 'pravila_vipolnen', 'vozrast', 'pol', 'normativ_na_6', 'normativ_na_5', 'normativ_na_4']
 
         widgets = {
             "id_harakter": Select(attrs={
@@ -141,10 +164,6 @@ class UprajneniyaForm(ModelForm):
             "normativ_na_4": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Норматив на 4'
-            }),
-            "normativ_na_3": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Норматив на 3'
             })
         }
 
@@ -221,5 +240,57 @@ class EtolonRostVesForm(ModelForm):
             "otklon_ves_devoch": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Отклоненипе в весе девочки'
+            })
+        }
+
+class RezultatyForm(ModelForm):
+    class Meta:
+        model = Rezultaty
+        fields = [ 'ID_vida_sporta']
+
+        widgets = {
+            "ID_vida_sporta": Select(attrs={
+                'class': 'form-control',
+                'placeholder': 'Вид спорта'
+            })
+        }
+
+class RezultatyForm1(ModelForm):
+    class Meta:
+        model = Rezultaty
+        fields = [ 'imya_reb', 'pol_reb', 'vozr_reb', 'rost', 'ves']
+
+        widgets = {
+            "imya_reb": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Имя ребенка'
+            }),
+            "pol_reb": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Пол ребенка(Мужской, Женский)'
+            }),
+            "vozr_reb": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Возрост ребенка'
+            }),
+            "rost": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Рост ребенка'
+            }),
+            "ves": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Вес ребенка'
+            })
+        }
+
+class RezulUprForm(ModelForm):
+    class Meta:
+        model = RezulUpr
+        fields = ['resul_upr']
+
+        widgets = {
+            "resul_upr": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Результат'
             })
         }

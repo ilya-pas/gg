@@ -8,8 +8,8 @@
         {% if request.user|has_group:"Администратор" %}
             <p>{{ Harakter.nazvanie_harakteristiki }}</p>
             <p>{{ Harakter.opisanie_harakteristiki }}</p>
-            <a href="{% url 'Harakter-update' Harakter.id %}" class="btn btn-info">Редактировать пользователя</a>
-            <a href="{% url 'Harakter-delete' Harakter.id %}" class="btn btn-danger">Удалить пользователя</a>
+            <a href="{% url 'Harakter-update' Harakter.id %}" class="btn btn-info">Редактировать</a>
+            <a href="{% url 'Harakter-delete' Harakter.id %}" class="btn btn-danger">Удалить</a>
         {% else %}
             <h1>НЕТ ДОПУСКА!!!</h1>
         {% endif %}

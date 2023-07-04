@@ -3,34 +3,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-"""КАТЕГОРИЯ ПОЛЬЗОВАТЕЛЯ"""
-class KategorPolz(models.Model):
-    kategoria = models.CharField(verbose_name='Категория пользователя', max_length=255)
-    opisanie = models.CharField(verbose_name='Описание', max_length=255)
-
-    def __str__(self):
-        return self.kategoria
-
-    class Meta:
-        verbose_name = 'Категория пользователя'
-        verbose_name_plural = 'Категории пользователей'
-
-"""ПОЛЬЗОВАТЕЛИ"""
-class Polzovateli(models.Model):
-    ID_kategorii = models.ForeignKey(KategorPolz, on_delete=models.RESTRICT, verbose_name='Категория пользователя', default=1)
-    login = models.CharField(verbose_name='Логин', max_length=255)
-    parol = models.CharField(verbose_name='Пароль', max_length=255)
-
-    def __str__(self):
-        return self.login
-
-    def get_absolute_url(self):
-        return f'/Administrator/Polz/{self.id}'
-
-    class Meta:
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
-
 """ВИДЫ СПОРТА"""
 class VidSporta(models.Model):
     nazvanie_vida = models.CharField(verbose_name='Название вида спорта', max_length=255)
@@ -53,14 +25,14 @@ class VidSporta(models.Model):
 
 """РЕЗУЛЬТАТЫ"""
 class Rezultaty(models.Model):
-    ID_polzovatelya = models.ForeignKey(Polzovateli, on_delete=models.RESTRICT, verbose_name='Пользователь')
+    ID_polzovatelya = models.ForeignKey(User, on_delete=models.RESTRICT, verbose_name='Пользователь')
     imya_reb = models.CharField(verbose_name='Имя ребенка', max_length=255)
     pol_reb = models.CharField(verbose_name='Пол ребенка', max_length=255)
     vozr_reb = models.IntegerField(verbose_name='Возраст ребенка')
-    date_prohoj_test = models.DateTimeField(verbose_name='Дата прохождения тестирования')
-    rost = models.IntegerField('verbose_name=Рост')
+    date_prohoj_test = models.DateTimeField(verbose_name='Дата прохождения тестирования', null=True)
+    rost = models.IntegerField(verbose_name='Рост')
     ves = models.FloatField(verbose_name='Вес')
-    ID_vida_sporta = models.ForeignKey(VidSporta, on_delete=models.RESTRICT, verbose_name='Вид спорта')
+    ID_vida_sporta = models.ForeignKey(VidSporta, on_delete=models.RESTRICT, verbose_name='Вид спорта', null=True)
 
     def __str__(self):
         return self.imya_reb
@@ -122,7 +94,6 @@ class Uprajneniya(models.Model):
     normativ_na_6 = models.FloatField(verbose_name='Норматив на 6')
     normativ_na_5 = models.FloatField(verbose_name='Норматив на 5')
     normativ_na_4 = models.FloatField(verbose_name='Норматив на 4')
-    normativ_na_3 = models.FloatField(verbose_name='Норматив на 3')
 
     def __str__(self):
         return self.uprajnen
@@ -133,12 +104,12 @@ class Uprajneniya(models.Model):
 
 """РЕЗУЛЬТАТЫ УПРАЖНЕНИЯ"""
 class RezulUpr(models.Model):
-    ID_resul = models.ForeignKey(Rezultaty, on_delete=models.RESTRICT, verbose_name='Результат')
-    ID_upr = models.ForeignKey(Uprajneniya, on_delete=models.RESTRICT, verbose_name='Упражнение')
+    ID_resul = models.ForeignKey(Rezultaty, on_delete=models.RESTRICT, verbose_name='Результат', null=True)
+    ID_upr = models.ForeignKey(Uprajneniya, on_delete=models.RESTRICT, verbose_name='Упражнение', null=True)
     resul_upr = models.IntegerField(verbose_name='Результат упражнения')
 
     def __str__(self):
-        return self.ID_resul
+        return str(self.ID_resul)
 
     class Meta:
         verbose_name = 'Результат упражнения'

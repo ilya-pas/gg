@@ -1,0 +1,34 @@
+{% extends 'ProgrammUmnKom/Shablon.html' %}
+
+{% block title %}Тестирование{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Тестирование гибкости</h1><br>
+        {% if request.user|has_group:"Родитель" %}
+            {% for el in upr %}
+                {% if el.vozrast == rez.vozr_reb %}
+                    {% if el.pol == rez.pol_reb %}
+                        {% if rezul %}
+                            {% if rezulK1 != '' %}
+                                {% if rezulK1 == el.uprajnen %}
+                                    <h3>{{ el.uprajnen }}</h3>
+                                    <p>Упражнение выполнено</p>
+                                {% else %}
+                                    <h3>{{ el.uprajnen }}</h3>
+                                    <a href="{% url 'DobGibkost' rez.id el.id %}" class="btn btn-warning">Заполнить результат</a><br><br>
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            <h3>{{ el.uprajnen }}</h3>
+                            <a href="{% url 'DobGibkost' rez.id el.id %}" class="btn btn-warning">Заполнить результат</a><br><br>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <a href="{% url 'Kordin' rez.id %}" class="btn btn-warning">Далее</a>
+        {% else %}
+            <h1>НЕТ ДОПУСКА!!!</h1>
+        {% endif %}
+    </div>
+{% endblock %}
